@@ -28,8 +28,27 @@ def location_row(board):
     """
     return randint(0, len(board) - 1)
 
+
 ship_row = location_row(board)
 ship_col = location_col(board)
 
-print(ship_col)
 print(ship_row)
+print(ship_col)
+
+
+for guess in range(4):
+    print("Turn: " + str(guess))
+    guess_row = int(input("Guess Row: "))
+    guess_col = int(input("Guess Col: "))
+
+    if guess_row == ship_row and guess_col == ship_col:
+        board[guess_row][guess_col] = "X"
+        print("Congratulations! You sank my battleship!")
+        print_board(board)
+        guess =+1
+        break
+    else:
+        board[guess_row][guess_col] = "O"
+        print("You missed!")
+        print_board(board)
+        guess =+1
