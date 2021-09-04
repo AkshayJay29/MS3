@@ -13,8 +13,6 @@ def print_board(board):
     for row in board:
         print(" ".join(row))
 
-print_board(board)
-
 
 def location_col(board):
     """
@@ -36,6 +34,7 @@ print(ship_row)
 print(ship_col)
 
 
+print_board(board)
 for guess in range(4):
     print("Turn: " + str(guess))
     guess_row = int(input("Guess Row: "))
@@ -48,7 +47,14 @@ for guess in range(4):
         guess =+1
         break
     else:
-        board[guess_row][guess_col] = "O"
-        print("You missed!")
-        print_board(board)
-        guess =+1
+        if guess_row not in range(7) or guess_col not in range(7):
+            print("Oops, value is not in range")
+            print_board(board)
+        elif board[guess_row][guess_col] == "X" or board[guess_row][guess_col] == "O":
+            print("You already fired here")
+            print_board(board)
+        else:
+            board[guess_row][guess_col] = "O"
+            print("You missed!")
+            print_board(board)
+            guess =+1
