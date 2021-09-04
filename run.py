@@ -26,14 +26,20 @@ def location_row(board):
     """
     return randint(0, len(board) - 1)
 
-
 ship_row = location_row(board)
 ship_col = location_col(board)
 
-print(ship_row)
-print(ship_col)
+
+def welcome_instructions():
+    print("Welcome to battleships!")
+    print("Board size: 7x7. Top left corner is row: 0, col: 0")
+    print("Number of ships 1")
+    print("You have 3 guesses before you lose!")
+    print("Warning guessing a spot that you have already guessed will count as a turn.")
 
 
+# Main game logic
+welcome_instructions()
 print_board(board)
 for guess in range(3):
     print("Turn: " + str(guess +1))
