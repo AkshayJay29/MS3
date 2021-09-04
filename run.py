@@ -35,8 +35,8 @@ print(ship_col)
 
 
 print_board(board)
-for guess in range(4):
-    print("Turn: " + str(guess))
+for guess in range(3):
+    print("Turn: " + str(guess +1))
     guess_row = int(input("Guess Row: "))
     guess_col = int(input("Guess Col: "))
 
@@ -58,3 +58,5 @@ for guess in range(4):
             print("You missed!")
             print_board(board)
             guess =+1
+    if guess == 2:
+        print("Game over! You lost.")
