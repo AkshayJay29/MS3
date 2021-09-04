@@ -18,3 +18,11 @@ Guess on the opponents board will be marked with an O, hits are indicated by an 
 Once the user has made their guess, the CPU will automatically respond with a guess.
 The user and computer will take turn guessing.
 The game is finished when either the user or computer has guessed all the opponents ships, or when either player has guessed incorrectly 3 times in a row.
+
+## Features
+
+### Existing Features
+- Random ship generation
+ - The user and computer ships are generated randomly onto the board.
+ - The user cannot see where the computers ships are placed and vice versa.
+ 
