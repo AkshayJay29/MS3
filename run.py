@@ -1,3 +1,15 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+from random import randint #Random Integers
+
+board = []
+
+for x in range(7):
+    board.append(["-"] * 7)
+
+def print_board(board):
+    """
+    Prints the correct format for CPU the board
+    """
+    for row in board:
+        print(" ".join(row))
+
+print_board(board)
