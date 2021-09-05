@@ -70,6 +70,14 @@ cpu_ship_row = cpu_location_row(cpu_board)
 cpu_ship_col = cpu_location_col(cpu_board)
 
 
+def print_cpu_guess():
+    """
+    Print CPU guess row and col function
+    """
+    print("The CPU guessed:")
+    print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+
+
 def welcome_instructions():
     """
     Intructions function to explain the how the game is played.
@@ -100,13 +108,11 @@ for guess in range(3):
         if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
             board[cpu_guess_row][cpu_guess_col] = "X"
             print_boards()
-            print("The CPU guessed:")
-            print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+            print_cpu_guess()
             print("The CPU sank your battleship!")
         else:
             board[cpu_guess_row][cpu_guess_col] = "O"
-            print("The CPU guessed:")
-            print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+            print_cpu_guess()
             print("The CPU missed!")
             break
     else:
@@ -123,14 +129,12 @@ for guess in range(3):
             if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
                 board[cpu_guess_row][cpu_guess_col] = "X"
                 print_boards()
-                print("The CPU guessed:")
-                print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+                print_cpu_guess()
                 print("The CPU sank your battleship!")
             else:
                 board[cpu_guess_row][cpu_guess_col] = "O"
-                print("The CPU guessed:")
-                print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+                print_cpu_guess()
                 print("The CPU missed!")
-            guess = + 1
-    if guess == 2:
-        print("Game over! You lost.")
+                guess = + 1
+        if guess == 3:
+            print("Game over! You lost.")
