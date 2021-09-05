@@ -43,3 +43,22 @@ The game is finished when either the user or computer has guessed all the oppone
  - Allow player to set grid
  - Allow player to position the ships themselves
 
+## Testing
+
+I have manually tested this project by the following:
+- Ran the code through PEP8 validator. I initially ran into a few issues, as you can see in the image below:
+
+However, these issues were rectified by...
+- Entered incorrect inputs into the terminal to make sure the correct warning messages are appearing
+- During the coding process I ran the project through the terminal each time to make sure the function im creating is working
+
+### Bugs
+#### Solved Bugs
+
+### Remaining Bugs
+
+### Validator Testing
+
+## Deployment
+
+## Credits
