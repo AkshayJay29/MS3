@@ -29,6 +29,9 @@ def c_board(cpu_board):
 
 
 def print_boards():
+    """
+    Print both sets of boards
+    """
     print("Players Board:")
     p_board(board)
     print(" ")
@@ -90,16 +93,22 @@ def welcome_instructions():
 
 
 # Main game logic
+hit_count = 0
+
 welcome_instructions()
 print(f"Your ship is located at row : {ship_row}, col: {ship_col}\n")
 print_boards()
-for guess in range(3):
+for guess in range(4):
+    if guess == 3:
+        print("Game over! Too many incorrect guesses.")
+        break
+
     print("Turn: " + str(guess + 1))
     guess_row = int(input("Guess Row: "))
     guess_col = int(input("Guess Col: "))
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
-
+    
     if guess_row == cpu_ship_row and guess_col == cpu_ship_col:
         cpu_board[guess_row][guess_col] = "X"
         print("Congratulations! You sank the CPU battleship!")
@@ -113,7 +122,6 @@ for guess in range(3):
             board[cpu_guess_row][cpu_guess_col] = "O"
             print_cpu_guess()
             print("The CPU missed!")
-            break
     else:
         if guess_row not in range(7) or guess_col not in range(7):
             print("Oops, value is not in range")
@@ -131,10 +139,11 @@ for guess in range(3):
                 print_boards()
                 print_cpu_guess()
                 print("The CPU sank your battleship!")
+                print("Game over! You lose!")
+                break
             else:
                 board[cpu_guess_row][cpu_guess_col] = "O"
                 print_cpu_guess()
                 print("The CPU missed!")
                 guess = + 1
-        if guess == 3:
-            print("Game over! You lost.")
+    
