@@ -100,7 +100,7 @@ def print_cpu_guess():
     Print CPU guess row and col function
     """
     print("The CPU guessed:")
-    print(f"Row: {cpu_guess_row}, Col: {cpu_guess_col}")
+    print(f"Row: {cpu_guess_row + 1}, Col: {cpu_guess_col + 1}")
 
 
 def welcome_instructions():
@@ -143,13 +143,17 @@ for guess in range(4):
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
     
-    if guess_row == cpu_ship_row and guess_col == cpu_ship_col:
+    if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) or \
+        (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) or \
+            (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3) :
         cpu_board[guess_row][guess_col] = "X"
         print("Congratulations! You sank the CPU battleship!")
         guess = + 1
         print("Game over! You win!")
         break
-        if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
+        if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
+            (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
+                (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
             board[cpu_guess_row][cpu_guess_col] = "X"
             print_boards()
             print_cpu_guess()
@@ -172,7 +176,9 @@ for guess in range(4):
             cpu_board[guess_row][guess_col] = "O"
             print("You missed!")
             print_boards()
-            if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
+            if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
+                (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
+                    (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
                 board[cpu_guess_row][cpu_guess_col] = "X"
                 print_boards()
                 print_cpu_guess()
