@@ -106,9 +106,9 @@ def welcome_instructions():
     Intructions function to explain the how the game is played.
     """
     print("Welcome to battleships!")
-    print("Board size: 7x7. Top left corner is row: 0, col: 0")
-    print("Number of ships 1")
-    print("You have 3 guesses before you lose!")
+    print("Board size: 7x7. Top left corner is row: 1, col: 1")
+    print("Number of ships 3 each")
+    print("You have 8 guesses before you lose!")
     print("Warning guessing the same spot twice will count as a turn!\n")
 
 
