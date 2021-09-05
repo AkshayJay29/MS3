@@ -24,5 +24,22 @@ The game is finished when either the user or computer has guessed all the oppone
 ### Existing Features
 - Random ship generation
  - The user and computer ships are generated randomly onto the board.
- - The user cannot see where the computers ships are placed and vice versa.
- 
+ - The user's ship location will be printed to the terminal at the start of the game.
+
+[![game_start_terminal](documentation_assets/images/game_start_terminal.png)](documentation_assets/images/game_start_terminal.png)
+
+- Play against the computer, the computer will automatically return with a guess after the users guess
+- Accepts user input
+
+[![game_turn1](documentation_assets/images/game_turn1.png)](documentation_assets/images/game_turn1.png)
+
+- Input validation
+    - You can only enter numbers/integers
+    - You cannot enter values outside the grid size
+    - If you enter the same coordinates twice, this counts as a turn
+### Future Features
+ - Add multiple battleships
+ - Allow player to see their own ship on the board
+ - Allow player to set grid
+ - Allow player to position the ships themselves
+

@@ -90,9 +90,8 @@ def welcome_instructions():
 
 
 # Main game logic
-print(cpu_ship_row)
-print(cpu_ship_col)
 welcome_instructions()
+print(f"Your ship is located at row : {ship_row}, col: {ship_col}\n")
 print_boards()
 for guess in range(3):
     print("Turn: " + str(guess + 1))
