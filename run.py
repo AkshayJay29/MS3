@@ -109,7 +109,7 @@ def welcome_instructions():
     """
     print("Welcome to battleships!")
     print("Board size: 7x7. Top left corner is col: 1, row: 1")
-    print("Number of ships 3: each")
+    print("Number of ships: 3 each")
     print("You have 8 guesses before you lose!")
     print("Warning guessing the same spot twice will count as a turn!\n")
 
@@ -124,12 +124,14 @@ board[ship_col2][ship_row2] = "S"
 board[ship_col3][ship_row3] = "S"
 print_boards()
 for guess in range(9):
+    # After 8 turns the game will end.
     if guess == 8:
         print("Game over! Too many incorrect guesses.")
         break
 
     print("Turn: " + str(guess + 1))
 
+    # Validation to check that user input is an integer
     while True:
         try:
             guess_col = int(input("Guess Col: ")) - 1
@@ -142,6 +144,7 @@ for guess in range(9):
     cpu_guess_col = randint(0, len(board) - 1)
     cpu_guess_row = randint(0, len(board) - 1)
 
+    # Logic for if user guesses correctly
     if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) \
         or (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) \
             or (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3):
@@ -158,6 +161,7 @@ for guess in range(9):
             guess = + 1
             print("Game over! You win!")
             break
+        # Logic for if CPU guesses correctly
         if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
             (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
                 (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
@@ -173,21 +177,26 @@ for guess in range(9):
                 print("Game over! The CPU sank all your ships!")
                 break
         else:
+            # Logic for if CPU guesses incorrectly
             board[cpu_guess_row][cpu_guess_col] = "O"
             print_boards()
             print_cpu_guess()
             print("The CPU missed!")
     else:
+        # Logic for if user guesses a value that is not in range
         if guess_row not in range(7) or guess_col not in range(7):
             print("Oops, value is not in range")
             print_boards()
+        # Logic for if user guesses coordinates that they have already guessed
         elif cpu_board[guess_row][guess_col] == "X" or \
                 cpu_board[guess_row][guess_col] == "O":
             print("You already fired here")
             print_boards()
         else:
+            # Logic for if user guesses incorrectly
             cpu_board[guess_row][guess_col] = "O"
             print("You missed!")
+            # Logic for if CPU guesses correctly
             if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
                 (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
                     (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
@@ -198,6 +207,7 @@ for guess in range(9):
                 print("Game over! You lose!")
                 break
             else:
+                # Logic for if CPU guesses incorrectly
                 board[cpu_guess_row][cpu_guess_col] = "O"
                 print_boards()
                 print_cpu_guess()
