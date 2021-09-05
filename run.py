@@ -1,17 +1,36 @@
-from random import randint #Random Integers
+#Import function to generate random integers
+from random import randint 
 
 board = []
+computer_board = []
 
 for x in range(7):
-    board.append(["-"] * 7)
-
-
-def print_board(board):
     """
-    Prints the correct format for CPU the board
+    Generates the size of the playing board
+    """
+    board.append(["-"] * 7)
+    computer_board.append(["_"] * 7)
+
+def p_board(board):
+    """
+    Formats the correct layout for the player's board
     """
     for row in board:
         print(" ".join(row))
+
+def c_board(computer_board):
+    """
+    Formats the correct layout for the computer's board
+    """
+    for row in computer_board:
+        print(" ".join(row))
+
+def print_boards():
+    print("Players Board:")
+    p_board(board)
+    print(" ")
+    print("Computers Board:")
+    c_board(computer_board)
 
 
 def location_col(board):
@@ -40,7 +59,7 @@ def welcome_instructions():
 
 # Main game logic
 welcome_instructions()
-print_board(board)
+print_boards()
 for guess in range(3):
     print("Turn: " + str(guess +1))
     guess_row = int(input("Guess Row: "))
@@ -49,20 +68,20 @@ for guess in range(3):
     if guess_row == ship_row and guess_col == ship_col:
         board[guess_row][guess_col] = "X"
         print("Congratulations! You sank my battleship!")
-        print_board(board)
+        print_boards()
         guess =+1
         break
     else:
         if guess_row not in range(7) or guess_col not in range(7):
             print("Oops, value is not in range")
-            print_board(board)
+            print_boards()
         elif board[guess_row][guess_col] == "X" or board[guess_row][guess_col] == "O":
             print("You already fired here")
-            print_board(board)
+            print_boards()
         else:
             board[guess_row][guess_col] = "O"
             print("You missed!")
-            print_board(board)
+            print_boards()
             guess =+1
     if guess == 2:
         print("Game over! You lost.")
