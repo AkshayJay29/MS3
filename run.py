@@ -86,23 +86,40 @@ for guess in range(3):
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
 
-    if guess_row == ship_row and guess_col == ship_col:
-        board[guess_row][guess_col] = "X"
+    if guess_row == cpu_ship_row and guess_col == cpu_ship_col:
+        computer_board[guess_row][guess_col] = "X"
         print("Congratulations! You sank my battleship!")
-        print_boards()
         guess =+1
-        break
+        if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
+            board[cpu_guess_row][cpu_guess_col] = "X"
+            print_boards()
+            print(f"The computer guessed row: {cpu_guess_row}, col: {cpu_guess_col}")
+            print("The computer sank your battleship!")
+        else:
+            board[cpu_guess_row][cpu_guess_col] = "O"
+            print(f"The computer guessed row: {cpu_guess_row}, col: {cpu_guess_col}")
+            print("The computer missed!")
+            break
     else:
         if guess_row not in range(7) or guess_col not in range(7):
             print("Oops, value is not in range")
             print_boards()
-        elif board[guess_row][guess_col] == "X" or board[guess_row][guess_col] == "O":
+        elif computer_board[guess_row][guess_col] == "X" or computer_board[guess_row][guess_col] == "O":
             print("You already fired here")
             print_boards()
         else:
-            board[guess_row][guess_col] = "O"
+            computer_board[guess_row][guess_col] = "O"
             print("You missed!")
             print_boards()
+            if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
+                board[cpu_guess_row][cpu_guess_col] = "X"
+                print_boards()
+                print(f"The computer guessed row: {cpu_guess_row}, col: {cpu_guess_col}")
+                print("The computer sank your battleship!")
+            else:
+                board[cpu_guess_row][cpu_guess_col] = "O"
+                print(f"The computer guessed row: {cpu_guess_row}, col: {cpu_guess_col}")
+                print("The computer missed!")
             guess =+1
     if guess == 2:
         print("Game over! You lost.")
