@@ -69,8 +69,30 @@ def cpu_location_col(cpu_board):
 
 ship_row = location_row(board)
 ship_col = location_col(board)
+while True:
+    ship_row2 = location_row(board)
+    ship_col2 = location_col(board)
+    if ship_row2 != ship_row and ship_col2 != ship_col:
+        ship_row3 = location_row(board)
+        ship_col3 = location_col(board)
+        if (ship_row3 != ship_row2 and ship_col3 != ship_col2) and \
+            (ship_row3 != ship_row and ship_col3 != ship_col):
+            break
+
+
 cpu_ship_row = cpu_location_row(cpu_board)
 cpu_ship_col = cpu_location_col(cpu_board)
+while True:
+    cpu_ship_row2 = location_row(board)
+    cpu_ship_col2 = location_col(board)
+    if cpu_ship_row2 != cpu_ship_row and cpu_ship_col2 != cpu_ship_col:
+        cpu_ship_row3 = location_row(board)
+        cpu_ship_col3 = location_col(board)
+        if (cpu_ship_row3 != cpu_ship_row2 and cpu_ship_col3 != cpu_ship_col2) and \
+            (cpu_ship_row3 != cpu_ship_row and cpu_ship_col3 != cpu_ship_col):
+            break
+
+
 
 
 def print_cpu_guess():
@@ -95,6 +117,12 @@ def welcome_instructions():
 # Main game logic
 welcome_instructions()
 board[ship_row][ship_col] = "S"
+board[ship_row2][ship_col2] = "S"
+board[ship_row3][ship_col3] = "S"
+
+cpu_board[cpu_ship_row][cpu_ship_col] = "S"
+cpu_board[cpu_ship_row2][cpu_ship_col2] = "S"
+cpu_board[cpu_ship_row3][cpu_ship_col3] = "S"
 print_boards()
 for guess in range(4):
     if guess == 3:
