@@ -76,7 +76,7 @@ while True:
         ship_row3 = location_row(board)
         ship_col3 = location_col(board)
         if (ship_row3 != ship_row2 and ship_col3 != ship_col2) and \
-            (ship_row3 != ship_row and ship_col3 != ship_col):
+                (ship_row3 != ship_row and ship_col3 != ship_col):
             break
 
 
@@ -88,11 +88,9 @@ while True:
     if cpu_ship_row2 != cpu_ship_row and cpu_ship_col2 != cpu_ship_col:
         cpu_ship_row3 = location_row(board)
         cpu_ship_col3 = location_col(board)
-        if (cpu_ship_row3 != cpu_ship_row2 and cpu_ship_col3 != cpu_ship_col2) and \
-            (cpu_ship_row3 != cpu_ship_row and cpu_ship_col3 != cpu_ship_col):
+        if (cpu_ship_row3 != cpu_ship_row2 and cpu_ship_col3 != cpu_ship_col2)\
+                and (cpu_ship_row3 != cpu_ship_row and cpu_ship_col3 != cpu_ship_col):
             break
-
-
 
 
 def print_cpu_guess():
@@ -143,10 +141,10 @@ for guess in range(9):
 
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
-    
-    if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) or \
-        (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) or \
-            (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3) :
+
+    if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) \
+        or (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) \
+            or (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3):
         cpu_board[guess_row][guess_col] = "X"
         hit_count = hit_count + 1
         if hit_count == 1:
@@ -205,4 +203,3 @@ for guess in range(9):
                 print_boards()
                 print_cpu_guess()
                 print("The CPU missed!")
-    
