@@ -102,8 +102,16 @@ for guess in range(4):
         break
 
     print("Turn: " + str(guess + 1))
-    guess_row = int(input("Guess Row: ")) - 1
-    guess_col = int(input("Guess Col: ")) - 1
+
+    while True:
+        try:
+            guess_row = int(input("Guess Row: ")) - 1
+            guess_col = int(input("Guess Col: ")) - 1
+            break
+        except ValueError:
+            print("Not an integer. Try Again")
+            continue
+
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
     
