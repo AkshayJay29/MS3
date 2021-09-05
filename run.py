@@ -109,7 +109,7 @@ def welcome_instructions():
     """
     print("Welcome to battleships!")
     print("Board size: 7x7. Top left corner is col: 1, row: 1")
-    print("Number of ships 3 each")
+    print("Number of ships 3: each")
     print("You have 8 guesses before you lose!")
     print("Warning guessing the same spot twice will count as a turn!\n")
 
@@ -118,9 +118,7 @@ def welcome_instructions():
 hit_count = 0
 cpu_hit_count = 0
 welcome_instructions()
-"""
-Display user ships on user board
-"""
+# Display user ships on user board
 board[ship_col][ship_row] = "S"
 board[ship_col2][ship_row2] = "S"
 board[ship_col3][ship_row3] = "S"
@@ -190,7 +188,6 @@ for guess in range(9):
         else:
             cpu_board[guess_row][guess_col] = "O"
             print("You missed!")
-            print_boards()
             if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
                 (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
                     (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
