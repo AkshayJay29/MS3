@@ -57,12 +57,16 @@ def cpu_location_col(computer_board):
     """
     return randint(0, len(computer_board) - 1)
 
-
 ship_row = location_row(board)
 ship_col = location_col(board)
+cpu_ship_row = cpu_location_row(computer_board)
+cpu_ship_col = cpu_location_col(computer_board)
 
 
 def welcome_instructions():
+    """
+    Intructions function to explain the how the game is played.
+    """
     print("Welcome to battleships!")
     print("Board size: 7x7. Top left corner is row: 0, col: 0")
     print("Number of ships 1")
@@ -71,12 +75,16 @@ def welcome_instructions():
 
 
 # Main game logic
+print(cpu_ship_row)
+print(cpu_ship_col)
 welcome_instructions()
 print_boards()
 for guess in range(3):
     print("Turn: " + str(guess +1))
     guess_row = int(input("Guess Row: "))
     guess_col = int(input("Guess Col: "))
+    cpu_guess_row = randint(0, len(board) - 1)
+    cpu_guess_col = randint(0, len(board) - 1)
 
     if guess_row == ship_row and guess_col == ship_col:
         board[guess_row][guess_col] = "X"
