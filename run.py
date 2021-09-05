@@ -35,15 +35,28 @@ def print_boards():
 
 def location_col(board):
     """
-    Generate a random column for the CPU ship.
+    Generate a random column for the computer's ship
     """
     return randint(0, len(board) - 1)
 
 def location_row(board):
     """
-    Generate a random row for the CPU ship.
+    Generate a random row for the computer's ship
     """
     return randint(0, len(board) - 1)
+
+def cpu_location_row(computer_board):
+    """
+    Generate a random column for the player's ship
+    """
+    return randint(0, len(computer_board) - 1)
+
+def cpu_location_col(computer_board):
+    """
+    Generate a random row for the player's ship
+    """
+    return randint(0, len(computer_board) - 1)
+
 
 ship_row = location_row(board)
 ship_col = location_col(board)
@@ -54,7 +67,7 @@ def welcome_instructions():
     print("Board size: 7x7. Top left corner is row: 0, col: 0")
     print("Number of ships 1")
     print("You have 3 guesses before you lose!")
-    print("Warning guessing a spot that you have already guessed will count as a turn.")
+    print("Warning guessing a spot that you have already guessed will count as a turn.\n")
 
 
 # Main game logic
