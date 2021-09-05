@@ -119,7 +119,8 @@ for guess in range(3):
         if guess_row not in range(7) or guess_col not in range(7):
             print("Oops, value is not in range")
             print_boards()
-        elif cpu_board[guess_row][guess_col] == "X" or cpu_board[guess_row][guess_col] == "O":
+        elif cpu_board[guess_row][guess_col] == "X" or \
+                cpu_board[guess_row][guess_col] == "O":
             print("You already fired here")
             print_boards()
         else:
