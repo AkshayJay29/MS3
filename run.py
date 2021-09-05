@@ -53,13 +53,6 @@ def location_row(board):
     return randint(0, len(board) - 1)
 
 
-def cpu_location_row(cpu_board):
-    """
-    Generate a random column for the player's ship
-    """
-    return randint(0, len(cpu_board) - 1)
-
-
 def cpu_location_col(cpu_board):
     """
     Generate a random row for the player's ship
@@ -67,27 +60,36 @@ def cpu_location_col(cpu_board):
     return randint(0, len(cpu_board) - 1)
 
 
-ship_row = location_row(board)
+def cpu_location_row(cpu_board):
+    """
+    Generate a random column for the player's ship
+    """
+    return randint(0, len(cpu_board) - 1)
+
+
+# Logic for the user ships to not generate the same coordinates
 ship_col = location_col(board)
+ship_row = location_row(board)
 while True:
-    ship_row2 = location_row(board)
     ship_col2 = location_col(board)
+    ship_row2 = location_row(board)
     if ship_row2 != ship_row and ship_col2 != ship_col:
-        ship_row3 = location_row(board)
         ship_col3 = location_col(board)
+        ship_row3 = location_row(board)
         if (ship_row3 != ship_row2 and ship_col3 != ship_col2) and \
                 (ship_row3 != ship_row and ship_col3 != ship_col):
             break
 
 
-cpu_ship_row = cpu_location_row(cpu_board)
+# Logic for the CPU ships to not generate the same coordinates
 cpu_ship_col = cpu_location_col(cpu_board)
+cpu_ship_row = cpu_location_row(cpu_board)
 while True:
-    cpu_ship_row2 = location_row(board)
     cpu_ship_col2 = location_col(board)
+    cpu_ship_row2 = location_row(board)
     if cpu_ship_row2 != cpu_ship_row and cpu_ship_col2 != cpu_ship_col:
-        cpu_ship_row3 = location_row(board)
         cpu_ship_col3 = location_col(board)
+        cpu_ship_row3 = location_row(board)
         if (cpu_ship_row3 != cpu_ship_row2 and cpu_ship_col3 != cpu_ship_col2)\
                 and (cpu_ship_row3 != cpu_ship_row and cpu_ship_col3 != cpu_ship_col):
             break
@@ -98,7 +100,7 @@ def print_cpu_guess():
     Print CPU guess row and col function
     """
     print("The CPU guessed:")
-    print(f"Row: {cpu_guess_row + 1}, Col: {cpu_guess_col + 1}")
+    print(f"Col: {cpu_guess_col + 1}, Row: {cpu_guess_row + 1}")
 
 
 def welcome_instructions():
@@ -106,7 +108,7 @@ def welcome_instructions():
     Intructions function to explain the how the game is played.
     """
     print("Welcome to battleships!")
-    print("Board size: 7x7. Top left corner is row: 1, col: 1")
+    print("Board size: 7x7. Top left corner is col: 1, row: 1")
     print("Number of ships 3 each")
     print("You have 8 guesses before you lose!")
     print("Warning guessing the same spot twice will count as a turn!\n")
@@ -119,9 +121,9 @@ welcome_instructions()
 """
 Display user ships on user board
 """
-board[ship_row][ship_col] = "S"
-board[ship_row2][ship_col2] = "S"
-board[ship_row3][ship_col3] = "S"
+board[ship_col][ship_row] = "S"
+board[ship_col2][ship_row2] = "S"
+board[ship_col3][ship_row3] = "S"
 print_boards()
 for guess in range(9):
     if guess == 8:
@@ -132,15 +134,15 @@ for guess in range(9):
 
     while True:
         try:
-            guess_row = int(input("Guess Row: ")) - 1
             guess_col = int(input("Guess Col: ")) - 1
+            guess_row = int(input("Guess Row: ")) - 1
             break
         except ValueError:
             print("Not an integer. Try Again")
             continue
 
-    cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
+    cpu_guess_row = randint(0, len(board) - 1)
 
     if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) \
         or (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) \
