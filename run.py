@@ -93,8 +93,6 @@ def welcome_instructions():
 
 
 # Main game logic
-hit_count = 0
-
 welcome_instructions()
 print(f"Your ship is located at row : {ship_row}, col: {ship_col}\n")
 print_boards()
@@ -113,11 +111,15 @@ for guess in range(4):
         cpu_board[guess_row][guess_col] = "X"
         print("Congratulations! You sank the CPU battleship!")
         guess = + 1
+        print("Game over! You win!")
+        break
         if cpu_guess_row == ship_row and cpu_guess_col == ship_col:
             board[cpu_guess_row][cpu_guess_col] = "X"
             print_boards()
             print_cpu_guess()
             print("The CPU sank your battleship!")
+            print("Game over! You lose!")
+            break
         else:
             board[cpu_guess_row][cpu_guess_col] = "O"
             print_cpu_guess()
