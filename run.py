@@ -115,17 +115,18 @@ def welcome_instructions():
 
 
 # Main game logic
+hit_count = 0
+cpu_hit_count = 0
 welcome_instructions()
+"""
+Display user ships on user board
+"""
 board[ship_row][ship_col] = "S"
 board[ship_row2][ship_col2] = "S"
 board[ship_row3][ship_col3] = "S"
-
-cpu_board[cpu_ship_row][cpu_ship_col] = "S"
-cpu_board[cpu_ship_row2][cpu_ship_col2] = "S"
-cpu_board[cpu_ship_row3][cpu_ship_col3] = "S"
 print_boards()
-for guess in range(4):
-    if guess == 3:
+for guess in range(9):
+    if guess == 8:
         print("Game over! Too many incorrect guesses.")
         break
 
@@ -147,21 +148,35 @@ for guess in range(4):
         (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) or \
             (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3) :
         cpu_board[guess_row][guess_col] = "X"
-        print("Congratulations! You sank the CPU battleship!")
-        guess = + 1
-        print("Game over! You win!")
-        break
+        hit_count = hit_count + 1
+        if hit_count == 1:
+            print("You sank the first CPU battleship!")
+            guess = + 1
+        elif hit_count == 2:
+            print("You sank the second CPU battleship!")
+            guess = + 1
+        elif hit_count == 3:
+            print("Congratulations! You sunk all CPU battleships!")
+            guess = + 1
+            print("Game over! You win!")
+            break
         if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
             (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
                 (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
             board[cpu_guess_row][cpu_guess_col] = "X"
             print_boards()
             print_cpu_guess()
-            print("The CPU sank your battleship!")
-            print("Game over! You lose!")
-            break
+            cpu_hit_count = cpu_hit_count + 1
+            if cpu_hit_count == 1:
+                print("The CPU sank your first battleship!")
+            elif cpu_hit_count == 2:
+                print("The CPU sank your second battleship!")
+            elif cpu_hit_count == 3:
+                print("Game over! The CPU sank all your ships!")
+                break
         else:
             board[cpu_guess_row][cpu_guess_col] = "O"
+            print_boards()
             print_cpu_guess()
             print("The CPU missed!")
     else:
@@ -187,7 +202,7 @@ for guess in range(4):
                 break
             else:
                 board[cpu_guess_row][cpu_guess_col] = "O"
+                print_boards()
                 print_cpu_guess()
                 print("The CPU missed!")
-                guess = + 1
     
