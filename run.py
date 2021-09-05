@@ -94,7 +94,7 @@ def welcome_instructions():
 
 # Main game logic
 welcome_instructions()
-print(f"Your ship is located at row : {ship_row}, col: {ship_col}\n")
+board[ship_row][ship_col] = "S"
 print_boards()
 for guess in range(4):
     if guess == 3:
@@ -102,8 +102,8 @@ for guess in range(4):
         break
 
     print("Turn: " + str(guess + 1))
-    guess_row = int(input("Guess Row: "))
-    guess_col = int(input("Guess Col: "))
+    guess_row = int(input("Guess Row: ")) - 1
+    guess_col = int(input("Guess Col: ")) - 1
     cpu_guess_row = randint(0, len(board) - 1)
     cpu_guess_col = randint(0, len(board) - 1)
     
