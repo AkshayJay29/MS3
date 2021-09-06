@@ -115,4 +115,18 @@ I used Heroku to deploy my final project to the cloud. To do this I had to:
 15. Scroll down to Manual Deploy and select deploy branch.
 ## End Product
 
+Please find below some screenshots of the finished project:
+
+User misses shot:
+![user missed shot](documentation_assets/images/user_missed.png)
+
+Computer misses shot:
+![cpu missed shot](documentation_assets/images/cpu_missed.png)
+
+User sunk first CPU ship:
+![user guessed first ship](documentation_assets/images/user_guessed_first_ship.png)
+
+Too many incorrect guesses:
+![too many incorrect guesses](documentation_assets/images/game_over_incorrect_guesses.png)
+
 ## Credits
