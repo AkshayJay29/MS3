@@ -8,6 +8,8 @@ The user will try to beat the CPU by finding all the battleships first. Each bat
 
 A live version of the game can be found [here](placeholder).
 
+![project preview](documentation_assets/images/finished_screenshot.png)
+
 ## How to play
 
 Battleships is a simple board game that requires 2 players to play. In this case, you will be playing against the CPU.
@@ -79,5 +81,6 @@ I used Heroku to deploy my final project to the cloud. To do this I had to:
 13. Make sure heroku/python is at the top of the list, followed by heroku/nodejs
 14. Navigate to the deploy tab
 15. Scroll down to Manual Deploy and select deploy branch.
+## End Product
 
 ## Credits
