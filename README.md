@@ -10,6 +10,32 @@ A live version of the game can be found [here](placeholder).
 
 ![project preview](documentation_assets/images/finished_screenshot.png)
 
+## Strategy
+
+### Project Goals
+
+The main goal of this game is to create a fun entertaining game that is interactive to the user and to display the basic use of the Python language. The user will play against the computer making the game more engaging.
+
+### User Goals:
+
+First Time Visitor Goals
+- As a first-time visitor, I want to be engaged with the concept of the game.
+- As a first-time visitor, I want to be able to easily understand the rules of the game.
+- As a first-time visitor, I want to play the game to win.
+
+Returning Visitor Goals
+- As a Returning Visitor, I want to beat the computer.
+
+Frequent User Goals
+- As a Frequent User, I want to check to see if there are more features added.
+
+### User Expectations:
+
+The game should be engaging and display a winner and loser.
+
+- The instructions are clear and simple to follow.
+- The game is fun to play
+
 ## Structure
 
 Below is a diagram showing the logic and possibilities for this game.
