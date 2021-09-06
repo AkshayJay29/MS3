@@ -10,6 +10,12 @@ A live version of the game can be found [here](placeholder).
 
 ![project preview](documentation_assets/images/finished_screenshot.png)
 
+## Structure
+
+Below is a diagram showing the logic and possibilities for this game.
+
+![project diagram](documentation_assets/images/battleships_diagram.png)
+
 ## How to play
 
 Battleships is a simple board game that requires 2 players to play. In this case, you will be playing against the CPU.
