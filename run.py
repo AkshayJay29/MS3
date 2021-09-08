@@ -148,7 +148,7 @@ for guess in range(9):
     if (guess_row == cpu_ship_row and guess_col == cpu_ship_col) \
         or (guess_row == cpu_ship_row2 and guess_col == cpu_ship_col2) \
             or (guess_row == cpu_ship_row3 and guess_col == cpu_ship_col3):
-        cpu_board[guess_row][guess_col] = "X"
+        cpu_board[guess_col][guess_row] = "X"
         hit_count = hit_count + 1
         if hit_count == 1:
             print("You sank the first CPU battleship!")
@@ -164,8 +164,8 @@ for guess in range(9):
         # Logic for if CPU guesses correctly
         if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
             (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
-                (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
-            board[cpu_guess_row][cpu_guess_col] = "X"
+            (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
+            board[cpu_guess_col][cpu_guess_row] = "X"
             print_boards()
             print_cpu_guess()
             cpu_hit_count = cpu_hit_count + 1
@@ -178,7 +178,7 @@ for guess in range(9):
                 break
         else:
             # Logic for if CPU guesses incorrectly
-            board[cpu_guess_row][cpu_guess_col] = "O"
+            board[cpu_guess_col][cpu_guess_row] = "O"
             print_boards()
             print_cpu_guess()
             print("The CPU missed!")
@@ -194,21 +194,30 @@ for guess in range(9):
             print_boards()
         else:
             # Logic for if user guesses incorrectly
-            cpu_board[guess_row][guess_col] = "O"
+            cpu_board[guess_col][guess_row] = "O"
             print("You missed!")
             # Logic for if CPU guesses correctly
             if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
                 (cpu_guess_row == ship_row2 and cpu_guess_col == ship_col2) or \
-                    (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
-                board[cpu_guess_row][cpu_guess_col] = "X"
+                (cpu_guess_row == ship_row3 and cpu_guess_col == ship_col3):
+                board[cpu_guess_col][cpu_guess_row] = "X"
                 print_boards()
                 print_cpu_guess()
-                print("The CPU sank your battleship!")
-                print("Game over! You lose!")
-                break
+                cpu_hit_count = cpu_hit_count + 1
+                if cpu_hit_count == 1:
+                    print("The CPU sank your first battleship!")
+                    guess = + 1
+                elif cpu_hit_count == 2:
+                    print("The CPU sank your second battleship!")
+                    guess = + 1
+                elif cpu_hit_count == 3:
+                    print("The CPU sunk all your battleships!")
+                    guess = + 1
+                    print("Game over! You win!")
+                    break
             else:
                 # Logic for if CPU guesses incorrectly
-                board[cpu_guess_row][cpu_guess_col] = "O"
+                board[cpu_guess_col][cpu_guess_row] = "O"
                 print_boards()
                 print_cpu_guess()
                 print("The CPU missed!")
