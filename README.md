@@ -46,12 +46,12 @@ Below is a diagram showing the logic and possibilities for this game.
 
 Battleships is a simple board game that requires 2 players to play. In this case, you will be playing against the CPU.
 The user will enter a value between 0-7 to set the guess the location of the ships on the board.
-The user gets 3 guesses per ship, if the user has used all guesses on the first ship, the game will end.
+The user gets 8 guesses, if the user has used all guesses on the first ship, the game will end.
 The user will see where their ships are marked, indicated an S.
-Guess on the opponents board will be marked with an O, hits are indicated by an X.
+Missed guesses on the opponents board will be marked with an O, hits are indicated by an X.
 Once the user has made their guess, the CPU will automatically respond with a guess.
-The user and computer will take turn guessing.
-The game is finished when either the user or computer has guessed all the opponents ships, or when either player has guessed incorrectly 3 times in a row.
+The user and computer will take turns guessing.
+The game is finished when either the user or computer has guessed all the opponents ships, or when either player has guessed incorrectly 8 times in a row.
 
 ## Features
 
@@ -71,8 +71,11 @@ The game is finished when either the user or computer has guessed all the oppone
 
 - Input validation
     - You can only enter numbers/integers
-    - If you enter a value that is not in range it will count as a turn
-    - If you enter the same coordinates twice, this counts as a turn
+    [![string_values_entered](documentation_assets/images/input_validation_string.png](documentation_assets/images/input_validation_string.png)
+    - Error message when user enters a value that is not in range
+    [![guess_coordinates_out_of_range](documentation_assets/images/guess_value_out_of_range.png](documentation_assets/images/guess_value_out_of_range.png)
+    - Error message when user enters the same coordinates repeatedly
+    [![guess_repeat_coordinates](documentation_assets/images/guess_repeat_coordinates.png](documentation_assets/images/guess_repeat_coordinates.png)
 ### Future Features
  - Allow player to set grid
  - Allow player to position the ships themselves
