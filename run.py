@@ -160,6 +160,7 @@ while guess < 9:
         elif hit_count == 3:
             print("Congratulations! You sunk all CPU battleships!")
             print("Game over! You win!")
+            print_boards()
             break
         # Logic for if CPU guesses correctly
         if (cpu_guess_row == ship_row and cpu_guess_col == ship_col) or \
@@ -175,6 +176,8 @@ while guess < 9:
                 print("The CPU sank your second battleship!")
             elif cpu_hit_count == 3:
                 print("Game over! The CPU sank all your ships!")
+                print("Game over! You lost!")
+                print_boards()
                 break
         else:
             # Logic for if CPU guesses incorrectly
@@ -217,7 +220,8 @@ while guess < 9:
                 elif cpu_hit_count == 3:
                     print("The CPU sunk all your battleships!")
                     guess = + 1
-                    print("Game over! You win!")
+                    print("Game over! You lost!")
+                    print_boards()
                     break
             else:
                 # Logic for if CPU guesses incorrectly
