@@ -89,6 +89,7 @@ I have manually tested this project by the following:
 #### Solved Bugs
 - Trying to guess the values of row: 7, col: 7 was returning a value not in range error. This was rectified by - 1 to the guessing logic.
 - The turn counter started at 0. This was rectified by adding + 1 to the turn counter.
+- CPU guessed incorrectly but their guess marked the user board with an X. Fixed by making sure the code to display an X on the user board appeared in this order: board cpu_guess_row cpu_guess_col
 
 ### Remaining Bugs
 - No bugs remaining
