@@ -113,7 +113,6 @@ def welcome_instructions():
     print("Board size: 7x7. Top left corner is col: 1, row: 1")
     print("Number of ships: 3 each")
     print("You have 8 guesses before you lose!")
-    print("Warning guessing the same spot twice will count as a turn!\n")
 
 
 # Main game logic
