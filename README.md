@@ -71,11 +71,11 @@ The game is finished when either the user or computer has guessed all the oppone
 
 - Input validation
     - You can only enter numbers/integers
-    ![string_values_entered](documentation_assets/images/input_validation_string.png](documentation_assets/images/input_validation_string.png)
+    ![string_values_entered](documentation_assets/images/input_validation_string.png)
     - Error message when user enters a value that is not in range
-    ![guess_coordinates_out_of_range](documentation_assets/images/guess_value_out_of_range.png](documentation_assets/images/guess_value_out_of_range.png)
+    ![guess_coordinates_out_of_range](documentation_assets/images/guess_value_out_of_range.png)
     - Error message when user enters the same coordinates repeatedly
-    ![guess_repeat_coordinates](documentation_assets/images/guess_repeat_coordinates.png](documentation_assets/images/guess_repeat_coordinates.png)
+    ![guess_repeat_coordinates](documentation_assets/images/guess_repeat_coordinates.png)
 ### Future Features
  - Allow player to set grid
  - Allow player to position the ships themselves
