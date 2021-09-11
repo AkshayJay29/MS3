@@ -99,6 +99,8 @@ I Ran the code through PEP8 validator. I initially ran into a few issues, as you
 [![python_validator_errors](documentation_assets/images/python_validator_errors.png)](documentation_assets/images/python_validator_errors.png)
 
 However, these issues were rectified by adding white spaces around operators and starting new lines of code as the line was too long. 
+[![python_validator_errors](documentation_assets/images/pep8_no_errors.png)](documentation_assets/images/pep8_no_errors.png)
+
 ## Deployment
 I used Heroku to deploy my final project to the cloud. To do this I had to:
 
@@ -134,3 +136,6 @@ Too many incorrect guesses:
 ![too many incorrect guesses](documentation_assets/images/game_over_incorrect_guesses.png)
 
 ## Credits
+
+- GitHub Python Template [Code Institute](https://github.com/Code-Institute-Org/python-essentials-template)
+- Heroku deployment instructions from Code Institute
