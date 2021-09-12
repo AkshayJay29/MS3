@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Welcome to my third project. This project is a simple battleships game that uses the python programming language, which runs in the terminal on Heroku.
+Welcome to my third project. This project is a simple battleships game that uses the Python programming language, which runs in the terminal on Heroku.
 
 The user will try to beat the CPU by finding all the battleships first. Each battleship is in a 1x1 spot on the board.
 
-A live version of the game can be found [here](placeholder).
+A live version of the game can be found [here](https://ms3-battleship.herokuapp.com/).
 
 ![project preview](documentation_assets/images/finished_screenshot.png)
 
@@ -48,10 +48,10 @@ Battleships is a simple board game that requires 2 players to play. In this case
 The user will enter a value between 0-7 to set the guess the location of the ships on the board.
 The user gets 8 guesses, if the user has used all guesses on the first ship, the game will end.
 The user will see where their ships are marked, indicated an S.
-Missed guesses on the opponents board will be marked with an O, hits are indicated by an X.
+Missed guesses on the opponent's board will be marked with an O, hits are indicated by an X.
 Once the user has made their guess, the CPU will automatically respond with a guess.
 The user and computer will take turns guessing.
-The game is finished when either the user or computer has guessed all the opponents ships, or when either player has guessed incorrectly 8 times in a row.
+The game is finished when either the user or computer has guessed all the opponent's ships, or when either player has guessed incorrectly 8 times in a row.
 
 ## Features
 
@@ -83,11 +83,11 @@ The game is finished when either the user or computer has guessed all the oppone
 
 I have manually tested this project by the following:
 - Entered incorrect inputs into the terminal to make sure the correct warning messages are appearing
-- During the coding process I ran the project through the terminal each time to make sure the function im creating is working
+- During the coding process, I ran the project through the terminal each time to make sure the functions I'm creating is working
 - Tested the project on Heroku
 ### Bugs
 #### Solved Bugs
-- Trying to guess the values of row: 7, col: 7 was returning a value not in range error. This was rectified by - 1 to the guessing logic.
+- Trying to guess the values of row: 7, col: 7 was returning the value not in range error. This was rectified by - 1 to the guessing logic.
 - The turn counter started at 0. This was rectified by adding + 1 to the turn counter.
 - CPU guessed incorrectly but their guess marked the user board with an X. Fixed by making sure the code to display an X on the user board appeared in this order: board cpu_guess_row cpu_guess_col
 
@@ -95,7 +95,7 @@ I have manually tested this project by the following:
 - No bugs remaining
 ### Validator Testing
 - [PEP8](http://pep8online.com/)
-I Ran the code through PEP8 validator. I initially ran into a few issues, as you can see in the image below:
+I ran the code through the PEP8 validator. I initially ran into a few issues, as you can see in the image below:
 [![python_validator_errors](documentation_assets/images/python_validator_errors.png)](documentation_assets/images/python_validator_errors.png)
 
 However, these issues were rectified by adding white spaces around operators and starting new lines of code as the line was too long. 
@@ -116,7 +116,7 @@ I used Heroku to deploy my final project to the cloud. To do this I had to:
 10. Add buildpack
 11. Select Python, then save changes.
 12. Select Nodejs, then save changes.
-13. Make sure heroku/python is at the top of the list, followed by heroku/nodejs
+13. Make sure Heroku/Python is at the top of the list, followed by Heroku/Nodejs
 14. Navigate to the deploy tab
 15. Scroll down to Manual Deploy and select deploy branch.
 ## End Product
