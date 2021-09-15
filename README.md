@@ -135,6 +135,9 @@ User sunk first CPU ship:
 Too many incorrect guesses:
 ![too many incorrect guesses](documentation_assets/images/game_over_incorrect_guesses.png)
 
+User wins game:
+![user wins game](documentation_assets/images/game_win.png)
+
 ## Credits
 
 - GitHub Python Template [Code Institute](https://github.com/Code-Institute-Org/python-essentials-template)
