@@ -61,13 +61,13 @@ The game is finished when either the user or computer has guessed all the oppone
  - The user's ship location will be printed to the user's board, this is marked with an "S"
  - Multiple battleships - each opponent has 3 ships to guess
 
-![game_start_terminal](documentation_assets/images/game_start_terminal.png)](documentation_assets/images/game_start_terminal.png)
+![game_start_terminal](documentation_assets/images/game_start_terminal.png)
 
 - Play against the computer, the computer will automatically return with a guess after the users guess
 - Accepts user input
 
 
-![game_turn1](documentation_assets/images/game_turn1.png)](documentation_assets/images/game_turn1.png)
+![game_turn1](documentation_assets/images/game_turn1.png)
 
 - Input validation
     - You can only enter numbers/integers
