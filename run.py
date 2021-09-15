@@ -102,7 +102,7 @@ def print_cpu_guess():
     Print CPU guess row and col function
     """
     print("The CPU guessed:")
-    print(f"Col: {cpu_guess_col + 1}, Row: {cpu_guess_row + 1}")
+    print(f"Column: {cpu_guess_col + 1}, Row: {cpu_guess_row + 1}")
 
 
 def welcome_instructions():
@@ -110,9 +110,12 @@ def welcome_instructions():
     Intructions function to explain the how the game is played.
     """
     print("Welcome to battleships!")
+    print("A Column goes from left to right")
+    print("A Row goes from up to down")
     print("Board size: 7x7. Top left corner is col: 1, row: 1")
     print("Number of ships: 3 each")
     print("You have 8 guesses before you lose!")
+    print("To run the game again, select run program")
 
 
 # Main game logic
@@ -125,6 +128,7 @@ board[ship_col2][ship_row2] = "S"
 board[ship_col3][ship_row3] = "S"
 print_boards()
 guess = 0
+cpu_guess_col_row_validation = []
 while guess < 9:
     # After 8 turns the game will end.
     if guess == 8:
@@ -136,15 +140,23 @@ while guess < 9:
     # Validation to check that user input is an integer
     while True:
         try:
-            guess_col = int(input("Guess Col: ")) - 1
+            guess_col = int(input("Guess Column: ")) - 1
             guess_row = int(input("Guess Row: ")) - 1
             break
         except ValueError:
             print("Not an integer. Try Again")
             continue
 
-    cpu_guess_col = randint(0, len(board) - 1)
-    cpu_guess_row = randint(0, len(board) - 1)
+# Generates CPU guess, if its already been generated then try new coordinates
+    while True:
+        cpu_guess_col = randint(0, len(board) - 1)
+        cpu_guess_row = randint(0, len(board) - 1)
+
+        if [cpu_guess_row, cpu_guess_col] in cpu_guess_col_row_validation:
+            continue
+        else:
+            cpu_guess_col_row_validation.append([cpu_guess_row, cpu_guess_col])
+            break
 
     # Logic for if user guesses correctly
     if (guess_row == cpu_ship_row and
@@ -230,3 +242,5 @@ while guess < 9:
                 print_cpu_guess()
                 print("The CPU missed!")
             guess += 1
+
+print("To run the game again, select run program")
