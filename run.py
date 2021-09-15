@@ -181,7 +181,7 @@ while guess < 9:
                 break
         else:
             # Logic for if CPU guesses incorrectly
-            board[cpu_guess_col][cpu_guess_row] = "O"
+            board[cpu_guess_row][cpu_guess_col] = "O"
             print_boards()
             print_cpu_guess()
             print("The CPU missed!")
